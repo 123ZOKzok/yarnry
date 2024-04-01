@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import theme from './styles/theme';
 import Appbar from './components/appbar';
 import Banner from './components/banner';
+import Promotions from './components/promotions';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       >
         <Appbar />
         <Banner />
+        <Promotions />
       </Container>
     </ThemeProvider>
   )

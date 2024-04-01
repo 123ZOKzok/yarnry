@@ -13,7 +13,7 @@ export const AppbarContainer = styled(Box)(() => ({
 export const AppbarHeader = styled(Typography)(() => ({
   fontSize: "3em",
   flexGrow: 1,
-  fontFamily: "monsieur-la-doulaise",
+  fontFamily: '"monsieur-la-doulaise", "cursive"',
   padding: "4px",
   color: Colors.secondary
 }));
