@@ -1,8 +1,9 @@
 import { ThemeProvider } from '@mui/material/styles';
-import { Button, Container } from '@mui/material'
+import { Container } from '@mui/material'
 import { useEffect } from 'react'
 import theme from './styles/theme';
 import Appbar from './components/appbar';
+import Banner from './components/banner';
 
 
 function App() {
@@ -15,8 +16,8 @@ function App() {
       maxWidth = "xl"
       sx={{background: '#fff'}}
       >
-        <Appbar/>
-       <Button variant='contained'> Test </Button>
+        <Appbar />
+        <Banner />
       </Container>
     </ThemeProvider>
   )
