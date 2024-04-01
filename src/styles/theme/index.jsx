@@ -1,7 +1,9 @@
+import { createTheme } from "@mui/material/styles";
+
 export const Colors = {
 //   primary: "#5f2c3e",
   primary: "#46f0ed",
-  secondary: "#d1adcc",
+  secondary: "#46f0ed",
   success: "#4CAF50",
   info: "#00a2ff",
   danger: "#FF5722",
@@ -25,3 +27,24 @@ export const Colors = {
   white: "#fff",
   black: "#000",
 };
+
+const theme = createTheme ({
+palette: {
+    primary: {
+        main: Colors.primary
+},
+secondary:{
+ main: Colors.secondary
+}
+},
+ components: {
+    MuiButton:{
+        defaultProps:{
+           disableRipple: true,
+           disableElevation: true 
+        }
+    }
+ }
+});
+
+export default theme;
