@@ -1,28 +1,55 @@
-import { MessageText, PromotionsContainer } from "../../styles/promotions"
-import { useState } from "react"
-import { Box } from "@mui/material"
+import { MessageText, PromotionsContainer } from "../../styles/promotions";
+import { useEffect, useState } from "react";
+import { Box, Slide } from "@mui/material";
+import { useRef } from "react";
 
+const messages = [
+  "20% off on your first order",
+  "Get your chunky knit blanket today!",
+  "Handmade with love 💕",
+  "follow us on all our social media platforms :)",
+];
 
+export default function Promotions() {
+  const [messageIndex, setMessageIndex] = useState(0);
+  const [show, setshow] = useState(true);
+  const containerRef = useRef();
 
-const messages =[
-    '20% off on your first order',
-    'Get your chunky knit blanket today!',
-    'Handmade with love',
-    'follow us on all our social media platforms :)'
-]
+  useEffect(() => {
+    setTimeout(() => {
+      setshow(false);
+    }, 3000);
 
-export default function Promotions () {
+    const intervalId = setInterval(() => {
+      setMessageIndex((i) => (i + 1) % messages.length);
 
-    const [messageIndex, setmessageIndex] = useState(0)
+      setshow(true);
+
+      setTimeout(() => {
+        setshow(false);
+      }, 3000);
+    }, 4000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   return (
-   <PromotionsContainer>
-    <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
-        <MessageText>
-            {messages[messageIndex]}
-        </MessageText>
-    </Box>
-   </PromotionsContainer>
-  )
+    <PromotionsContainer ref={containerRef}>
+      <Slide
+        container={containerRef.current}
+        direction={show ? "left" : "right"}
+        in={show}
+        timeout={{
+          enter: 500,
+          exit: 100,
+        }}
+      >
+        <Box display={"flex"} justifyContent="center" alignItems={"center"}>
+          <MessageText>{messages[messageIndex]}</MessageText>
+        </Box>
+      </Slide>
+    </PromotionsContainer>
+  );
 }
-
