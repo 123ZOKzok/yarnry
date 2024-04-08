@@ -1,4 +1,4 @@
-export const Products =[
+export const products =[
     {
         id : 1,
         name: 'white chunky chenille blanket',
@@ -104,4 +104,4 @@ export const Products =[
         description: '6x6 Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         Image: 'public/images/img8.jpg',
     },
-]
+];

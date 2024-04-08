@@ -1,6 +1,7 @@
 import { Box, IconButton } from "@mui/material";
 import { styled } from "@mui/material";
 import { Colors } from "../theme";
+import {slideInBottom} from "../../animations";
 
 export const product = styled(Box)(( { theme } ) => ({
     display: "flex",
@@ -49,4 +50,15 @@ export const product = styled(Box)(( { theme } ) => ({
      },
      background: Colors.secondary,
      opacity: 0.9,
+     animation: 
+     show && `${slideInBottom} 0.5s cubic-bezier(0.250, 0.450, 0.940) both` 
   }));
+
+  export const ProductActionsWrapperChat = styled(Box)(({ show, theme }) => ({ 
+   [theme.breakpoints.up("md")]: {
+     display: show ? 'visible' : 'none',
+     right: 0,
+     top: '20%',
+     animation: show && `${slideInRight} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
+   }
+ }));

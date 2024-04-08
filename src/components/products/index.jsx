@@ -1,7 +1,9 @@
-import { useMediaQuery, useTheme } from "@mui/material";
-import products from "../../data/index";
+import { useMediaQuery, useTheme, Grid, Container} from "@mui/material";
+import { products} from "../../data/index";
 
-export default function Product() {
+
+
+export default function Products() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
