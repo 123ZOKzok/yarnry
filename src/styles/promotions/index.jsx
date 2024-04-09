@@ -20,5 +20,5 @@ export const PromotionsContainer = styled(Box)(( { theme } ) => ({
        fontSize: '2rem',
     },
     fontSize: '1rem',
-    color: Colors.white
+    color: Colors.black
   }));
