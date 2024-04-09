@@ -4,9 +4,9 @@ import { lighten } from "polished";
 export const DrawerWidth = 250;
 
 export const Colors = {
-  primary: "#5f2c3e",
-  // primary: "#46f0ed",
-  secondary: "#BCBCBC",
+  // primary: "#5f2c3e",
+  primary: "#FA5F55",
+  secondary: "#FAC898",
   success: "#4CAF50",
   info: "#00a2ff",
   danger: "#FF5722",
