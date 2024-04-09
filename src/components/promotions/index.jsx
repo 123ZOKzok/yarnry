@@ -47,7 +47,7 @@ export default function Promotions() {
         }}
       >
         <Box display={"flex"} justifyContent="center" alignItems={"center"}>
-          <MessaygeText>{messages[messageIndex]}</MessaygeText>
+          <MessageText>{messages[messageIndex]}</MessageText>
         </Box>
       </Slide>
     </PromotionsContainer>
