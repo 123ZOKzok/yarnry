@@ -6,13 +6,15 @@ import Share from "@mui/icons-material/Share";
 import Favorite from "@mui/icons-material/Favorite";
 import FitScreen from "@mui/icons-material/FitScreen";
 import { useState } from "react";
+import useDialogModal from "../../hooks/useDialogModal";
+import ProductDetail from "../productdetail";
 
 export const Product = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
-  position: "relative", // Ensure position is relative for absolute positioning of children
+  position: "relative",
 }));
 
 export const ProductImage = styled("img")(({ src, theme }) => ({
@@ -20,10 +22,6 @@ export const ProductImage = styled("img")(({ src, theme }) => ({
   background: Colors.light_gray,
   width: "100%",
   padding: "10px",
-  [theme.breakpoints.down("md")]: {
-    width: "80%",
-    padding: "24px",
-  },
 }));
 
 export const ProductActionButton = styled(IconButton)(() => ({
@@ -33,9 +31,9 @@ export const ProductActionButton = styled(IconButton)(() => ({
 
 export const ProductFavButton = styled(ProductActionButton)(({ isFav, theme }) => ({
   color: isFav ? Colors.primary : Colors.light,
-  position: "absolute", // Ensure the button is absolutely positioned
+  position: "absolute", 
   top: 0,
-  right: 0, // Position on the right side
+  right: 0, 
 }));
 
 export const ProductAddtoCart = styled(Button, {
@@ -43,7 +41,7 @@ export const ProductAddtoCart = styled(Button, {
 })(({ show, theme }) => ({
   width: "120px",
   fontSize: "12px",
-  position: "absolute", // Ensure the button is absolutely positioned
+  position: "absolute", 
   bottom: "2%",
   width: "200px",
   padding: "10px 5px",
@@ -55,7 +53,7 @@ export const ProductAddtoCart = styled(Button, {
 export const ProductActionsWrapper = styled(Box, {
   shouldForwardProp: (prop) => prop !== "show",
 })(({ show, theme }) => ({
-  position: "absolute", // Ensure the wrapper is absolutely positioned
+  position: "absolute", 
   display: show ? "visible" : "none",
   right: 0,
   top: "20%",
@@ -64,6 +62,8 @@ export const ProductActionsWrapper = styled(Box, {
 
 
 export default function SingleProductDesktop({ product, matches }) {
+  const [ProductDetailDialog, showProductDetailDialog, closeProductDialog] =
+  useDialogModal(ProductDetail);
 
   const [showOptions, setShowOptions] = useState(false);
 
@@ -95,12 +95,13 @@ export default function SingleProductDesktop({ product, matches }) {
             <ProductActionButton>
               <Share color="primary" />
             </ProductActionButton>
-            <ProductActionButton>
+            <ProductActionButton onClick={() => showProductDetailDialog()}>
               <FitScreen color="primary" />
             </ProductActionButton>
           </Stack>
         </ProductActionsWrapper>
       </Product>
+      <ProductDetailDialog product={product} />
     </>
   );
 }
