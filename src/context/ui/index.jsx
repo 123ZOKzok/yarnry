@@ -5,7 +5,7 @@ export const useUIContext = () => useContext(UIContext);
 
 export const UIProvider = ({ children }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-//   const [showSearchBox, setShowSearchBox] = useState(false);
+  const [showSearchBox, setShowSearchBox] = useState(false);
 //   // NEW: add to cart
 //   const [cart, setCart] = useState([]);
 //   const [showCart, setShowCart] = useState(false);
@@ -14,8 +14,8 @@ export const UIProvider = ({ children }) => {
   const value = {
     drawerOpen,
     setDrawerOpen,
-    // showSearchBox,
-    // setShowSearchBox,
+    showSearchBox,
+    setShowSearchBox,
     // cart,
     // setCart,
     // showCart,
