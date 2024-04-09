@@ -67,7 +67,7 @@ import {
             <Product sx={{ mr: 4 }}>
               <ProductImage style={{
                 maxWidth: '600px'
-              }} src={product.photo} />
+              }} src={product.image} />
             </Product>
             <ProductDetailInfoWrapper>
               <Typography variant="subtitle">SKU: {product.quantity}</Typography>
