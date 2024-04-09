@@ -6,6 +6,9 @@ import Appbar from './components/appbar';
 import Banner from './components/banner';
 import Promotions from './components/promotions';
 import Product from './components/products';
+import Footer from './components/footer';
+import AppDrawer from './components/drawer';
+import { UIProvider } from './context/ui';
 
 
 function App() {
@@ -18,13 +21,17 @@ function App() {
       maxWidth = "xl"
       sx={{background: '#fff'}}
       >
-        <Appbar />
-        <Banner />
-        <Promotions />
-        <Box display="flex" justifyContent={"center"} sx={{ p: 4 }}>
-          <Typography variant='h4'>Our Products</Typography>
-        </Box>
-        <Product />
+        <UIProvider>
+          <Appbar />
+          <Banner />
+          <Promotions />
+          <Box display="flex" justifyContent={"center"} sx={{ p: 4 }}>
+            <Typography variant='h4'>Our Products</Typography>
+          </Box>
+          <Product />
+          <Footer />
+          <AppDrawer />
+        </UIProvider>
       </Container>
     </ThemeProvider>
   )

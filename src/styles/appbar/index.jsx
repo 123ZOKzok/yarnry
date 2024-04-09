@@ -1,5 +1,5 @@
-import { Box, List, Typography, styled } from "@mui/material";
-import { Colors } from "../theme";
+import { Box, IconButton, List, Typography, styled } from "@mui/material";
+import { Colors, DrawerWidth } from "../theme";
 import '@fontsource/monsieur-la-doulaise';
 
 export const AppbarContainer = styled(Box)(() => ({
@@ -42,4 +42,10 @@ export const ActionsIconsContainerWeb = styled(Box)(() => ({
   flexGrow: 0
 }));
 
+export const DrawerCloseButton = styled(IconButton)(() => ({
+  position: 'absolute',
+  top: 10,
+  left: DrawerWidth,
+  zIndex: 1999,      
+}));
 

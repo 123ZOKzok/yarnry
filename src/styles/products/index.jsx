@@ -8,9 +8,8 @@ export const Product = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
-  [theme.breakpoints.up("md")]: {
-    position: "relative",
-  },
+  position: "relative",
+ 
 }));
 
 export const ProductImage = styled("img")(({ src, theme }) => ({
@@ -34,7 +33,7 @@ export const ProductFavButton = styled(ProductActionButton, {
 })(({ isFav, theme }) => ({
   color: isFav ? Colors.primary : Colors.light,
   [theme.breakpoints.down("md")]: {
-    position: "absolute",
+    position: "relative",
     right: 0,
     top: 0,
   },

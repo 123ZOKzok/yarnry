@@ -1,4 +1,7 @@
 import { createTheme } from "@mui/material/styles";
+import { lighten } from "polished";
+
+export const DrawerWidth = 250;
 
 export const Colors = {
   primary: "#5f2c3e",
@@ -43,7 +46,43 @@ secondary:{
            disableRipple: true,
            disableElevation: true 
         }
-    }
+    }, MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          width: DrawerWidth,          
+          background: Colors.primary,
+          color: Colors.secondary,
+          borderRadius: '0px 100px 0px 0px',
+          borderRight: `1px solid ${Colors.primary}`
+        }
+      }
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          borderColor: lighten(0.2, Colors.primary)
+        }
+      }
+    },
+    MyShopButton: {
+      styleOverrides: {
+        root: {
+          color: Colors.white,
+        },
+        primary: {
+          background: Colors.primary,
+          "&:hover": {
+            background: lighten(0.05, Colors.primary),
+          },
+        },
+        secondary: {
+          background: `${Colors.secondary}`,
+          "&:hover": {
+            background: lighten(0.05, Colors.primary),
+          },
+        },
+      },
+    },
  }
 });
 
