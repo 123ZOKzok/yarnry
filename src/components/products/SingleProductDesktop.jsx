@@ -43,7 +43,6 @@ export const ProductAddtoCart = styled(Button, {
   fontSize: "12px",
   position: "absolute", 
   bottom: "2%",
-  width: "200px",
   padding: "10px 5px",
   background: Colors.secondary,
   opacity: 0.9,
