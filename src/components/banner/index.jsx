@@ -14,7 +14,7 @@ export default function Banner() {
 
   return (
     <BannerContainer>
-        <BannerImage src="public\images\img7.jpg"/>
+        <BannerImage src="./images/img7.jpg"/>
       <BannerContent>
         <Typography variant="h6">Huge Collection</Typography>
         <BannerTitle>Blankets</BannerTitle>

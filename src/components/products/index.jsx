@@ -2,6 +2,7 @@ import { useMediaQuery, useTheme, Grid, Container } from "@mui/material";
 import { products } from "../../data/index";
 import SingleProduct from "../products/SingleProduct";
 import SingleProductDesktop from "./SingleProductDesktop";
+// import AppPagination from "../pagination";
 
 export default function Products() {
   const theme = useTheme();
@@ -33,6 +34,7 @@ export default function Products() {
       >
         {renderProducts}
       </Grid>
+      {/* <AppPagination setProducts={(p) => setProducts(p)}/> */}
     </Container>
   );
 }

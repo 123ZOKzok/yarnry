@@ -8,6 +8,8 @@ import FitScreen from "@mui/icons-material/FitScreen";
 import { useState } from "react";
 import useDialogModal from "../../hooks/useDialogModal";
 import ProductDetail from "../productdetail";
+import useCart from "../../hooks/useCart";
+import { useUIContext } from "../../context/ui";
 
 export const Product = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -63,7 +65,9 @@ export const ProductActionsWrapper = styled(Box, {
 export default function SingleProductDesktop({ product, matches }) {
   const [ProductDetailDialog, showProductDetailDialog, closeProductDialog] =
   useDialogModal(ProductDetail);
-
+  // const { setCart } = useUIContext();
+    
+  const { addToCart, addToCartText } = useCart(product);
   const [showOptions, setShowOptions] = useState(false);
 
   const handleMouseEnter = () => {
@@ -80,12 +84,13 @@ export default function SingleProductDesktop({ product, matches }) {
         <ProductFavButton isFav={0}>
               <Favorite />
         </ProductFavButton>
-        {(showOptions) && (
+        {(showOptions || matches) && (
           <ProductAddtoCart
+            onClick={addToCart}
             show={showOptions}
             variant="contained"
           >
-            Add to Cart
+          {addToCartText}
           </ProductAddtoCart>
         )}
         <ProductMeta product={product} matches={matches} />

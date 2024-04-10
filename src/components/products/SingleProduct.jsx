@@ -13,6 +13,9 @@ import Favorite from "@mui/icons-material/Favorite";
 import FitScreen from "@mui/icons-material/FitScreen";
 import useDialogModal from "../../hooks/useDialogModal";
 import ProductDetail from "../productdetail";
+import { useUIContext } from "../../context/ui";
+import useCart from "../../hooks/useCart";
+import {  useState } from "react";
 
 
 
@@ -20,9 +23,21 @@ export default function SingleProduct({ product, matches }) {
 
   const [ProductDetailDialog, showProductDetailDialog, closeProductDialog] =
     useDialogModal(ProductDetail);
+  const { setCart } = useUIContext();
+
+  const { addToCart, addToCartText } = useCart(product);
+  const [showOptions, setShowOptions] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowOptions(true);
+  };
+  const handleMouseLeave = () => {
+    setShowOptions(false);
+  };
+  
   return (
     <>
-      <Product>
+      <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <ProductImage src={product.image} />
         <ProductMeta product={product} matches={matches} />
         <ProductActionsWrapper sx={{ position: "relative" }}>
@@ -39,7 +54,7 @@ export default function SingleProduct({ product, matches }) {
           </Stack>
         </ProductActionsWrapper>
       </Product>
-      <ProductAddtoCart variant="contained">Add to cart</ProductAddtoCart>
+      <ProductAddtoCart onClick={addToCart} variant="contained">{addToCartText}</ProductAddtoCart>
       <ProductDetailDialog product={product} />
     </>
   );
